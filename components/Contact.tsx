@@ -102,6 +102,7 @@ export default function Contact() {
   const panelGlow = dark ? "0 24px 60px rgba(0,0,0,0.35)" : "0 24px 60px rgba(2,8,23,0.12)";
   const hudBg = dark ? "rgba(255,255,255,0.03)" : "rgba(15,23,42,0.03)";
   const inputBg = dark ? "rgba(0,220,130,0.05)" : "rgba(0,220,130,0.06)";
+  const softPanel = dark ? "rgba(148,163,184,0.08)" : "rgba(15,23,42,0.06)";
 
   const [phase, setPhase] = useState<Phase>("intro");
   const [fields, setFields] = useState({ name: "", email: "", subject: "", message: "" });
@@ -214,8 +215,8 @@ export default function Contact() {
           <h2 style={{ fontSize: "clamp(28px,4vw,42px)", fontWeight: 900, letterSpacing: "-1px", marginBottom: 16, color: textMain }}>
             Get in <span className="gradient-text">Touch</span>
           </h2>
-          <p style={{ fontSize: 16, color: textMuted, marginBottom: 48, maxWidth: 480 }}>
-            Tell me a little about your project or opportunity. I usually reply within 24 hours.
+          <p style={{ fontSize: 16, color: textMuted, marginBottom: 48, maxWidth: 560, lineHeight: 1.7 }}>
+            Tell me a little about your project, role, or collaboration idea. I usually reply within 24 hours with next steps.
           </p>
         </motion.div>
 
@@ -223,6 +224,7 @@ export default function Contact() {
 
           {/* ── GAME FORM ── */}
           <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}
+            className="tilt-card glow-card"
             style={{
               borderRadius: 22,
               background: dark ? "linear-gradient(180deg, rgba(15,25,35,0.9), rgba(11,20,29,0.94))" : cardBg,
@@ -235,6 +237,7 @@ export default function Contact() {
             }}
           >
             <ConfettiBurst active={confetti} />
+            <div className="tilt-shine" />
             <div aria-hidden style={{ position: "absolute", top: -80, right: -80, width: 180, height: 180, borderRadius: "50%", background: "rgba(0,220,130,0.12)", filter: "blur(40px)", pointerEvents: "none" }} />
             <div aria-hidden style={{ position: "absolute", bottom: -110, left: -90, width: 220, height: 220, borderRadius: "50%", background: "rgba(99,102,241,0.1)", filter: "blur(55px)", pointerEvents: "none" }} />
 
@@ -288,7 +291,7 @@ export default function Contact() {
                     </div>
                     <div style={{ display: "flex", flexDirection: "column", gap: 10, marginBottom: 32 }}>
                       {STEPS.map((s) => (
-                        <div key={s.key} style={{ display: "flex", alignItems: "center", gap: 12, padding: "10px 14px", borderRadius: 10, background: dark ? "rgba(255,255,255,0.03)" : "rgba(0,0,0,0.03)", border: `1px solid ${cardBorder}` }}>
+                        <div key={s.key} className="glow-card" style={{ display: "flex", alignItems: "center", gap: 12, padding: "10px 14px", borderRadius: 10, background: dark ? "rgba(255,255,255,0.03)" : "rgba(0,0,0,0.03)", border: `1px solid ${cardBorder}` }}>
                           <span style={{ fontSize: 18 }}>{s.icon}</span>
                           <div style={{ flex: 1 }}>
                             <div style={{ fontFamily: "monospace", fontSize: 10, fontWeight: 700, color: "#6366f1", letterSpacing: "1px" }}>{s.label}</div>
@@ -498,23 +501,34 @@ export default function Contact() {
           {/* ── SOCIAL LINKS ── */}
           <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }}
             style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-            <div style={{ padding: "12px 14px", borderRadius: 12, border: `1px solid ${cardBorder}`, background: hudBg }}>
+            <div className="tilt-card glow-card" style={{ padding: "16px 16px", borderRadius: 14, border: `1px solid ${cardBorder}`, background: dark ? "linear-gradient(180deg, rgba(15,25,35,0.92), rgba(11,20,29,0.96))" : "linear-gradient(180deg, #ffffff, #f8fafc)", position: "relative", overflow: "hidden", boxShadow: panelGlow }}>
+              <div className="tilt-shine" />
+              <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 2, background: "linear-gradient(90deg, #00dc82, #6366f1, transparent)" }} />
+              <div aria-hidden style={{ position: "absolute", right: -24, top: -24, width: 80, height: 80, borderRadius: "50%", background: "rgba(0,220,130,0.16)", filter: "blur(20px)", pointerEvents: "none" }} />
               <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: "1.5px", color: "#6366f1", textTransform: "uppercase", marginBottom: 6 }}>
                 Contact Channels
               </div>
-              <div style={{ fontSize: 13, color: textMuted }}>
-                Reach out through any of the options below.
+              <div style={{ fontSize: 13, color: textMuted, marginBottom: 10 }}>
+                Reach out through any of the options below and I&apos;ll respond quickly.
+              </div>
+              <div style={{ display: "inline-flex", alignItems: "center", gap: 7, padding: "6px 11px", borderRadius: 999, background: "rgba(0,220,130,0.12)", border: "1px solid rgba(0,220,130,0.26)" }}>
+                <span style={{ width: 7, height: 7, borderRadius: "50%", background: "#00dc82", boxShadow: "0 0 0 6px rgba(0,220,130,0.18)" }} />
+                <span style={{ fontSize: 11, fontWeight: 700, fontFamily: "monospace", color: "#00dc82", letterSpacing: "0.3px" }}>AVAILABLE FOR WORK</span>
               </div>
             </div>
-            <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 4 }}>
+
+            <div className="tilt-card glow-card" style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 4, borderRadius: 12, padding: "10px 12px", border: `1px solid ${cardBorder}`, background: softPanel, position: "relative", overflow: "hidden" }}>
+              <div className="tilt-shine" />
               <MapPin size={13} color="#00dc82" />
               <span style={{ fontSize: 13, color: textMuted }}>Bengaluru, India · Open to remote</span>
             </div>
+
             {socials.map(({ icon, label, value, href, color }) => (
               <a key={label} href={href} target={href.startsWith("http") ? "_blank" : undefined} rel="noopener noreferrer"
                 className="tilt-card glow-card"
                 style={{ display: "flex", alignItems: "center", gap: 16, padding: "18px 22px", borderRadius: 16, background: cardBg, border: `1px solid ${cardBorder}`, textDecoration: "none", position: "relative", overflow: "hidden" }}>
                 <div className="tilt-shine" />
+                <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 1, background: `linear-gradient(90deg, ${color}, transparent)` }} />
                 <div style={{ width: 44, height: 44, borderRadius: 12, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, background: `${color}15`, color }}>
                   {icon}
                 </div>
@@ -522,7 +536,7 @@ export default function Contact() {
                   <div style={{ fontSize: 10, fontWeight: 700, textTransform: "uppercase", letterSpacing: "1px", color: textMuted, marginBottom: 3 }}>{label}</div>
                   <div style={{ fontSize: 14, fontWeight: 600, color: textMain, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{value}</div>
                 </div>
-                <ExternalLink size={14} color={textMuted} style={{ flexShrink: 0 }} />
+                <ExternalLink size={14} color={textMuted} style={{ flexShrink: 0, opacity: 0.85 }} />
               </a>
             ))}
           </motion.div>

@@ -12,6 +12,7 @@ export default function Education() {
   const cardBorder = dark ? "rgba(255,255,255,0.07)" : "rgba(0,0,0,0.07)";
   const textMain = dark ? "#ffffff" : "#0f172a";
   const textMuted = dark ? "#94a3b8" : "#64748b";
+  const panelGlow = dark ? "0 20px 52px rgba(0,0,0,0.28)" : "0 18px 44px rgba(2,8,23,0.1)";
 
   return (
     <section id="education" className="spotlight-section section-pad" style={{ background: bg, position: "relative" }}>
@@ -27,8 +28,10 @@ export default function Education() {
         </motion.div>
 
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}
-          className="glow-card"
-          style={{ padding: 40, borderRadius: 22, background: cardBg, border: `1px solid ${cardBorder}`, position: "relative", overflow: "hidden" }}>
+          className="tilt-card glow-card"
+          style={{ padding: 40, borderRadius: 22, background: dark ? "linear-gradient(180deg, rgba(15,25,35,0.92), rgba(11,20,29,0.96))" : cardBg, border: `1px solid ${cardBorder}`, position: "relative", overflow: "hidden", boxShadow: panelGlow }}>
+          <div className="tilt-shine" />
+          <div aria-hidden style={{ position: "absolute", top: -70, right: -60, width: 170, height: 170, borderRadius: "50%", background: "rgba(0,220,130,0.12)", filter: "blur(44px)", pointerEvents: "none" }} />
           <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 2, background: "linear-gradient(90deg, #00dc82, #6366f1, transparent)" }} />
 
           <div style={{ display: "flex", flexWrap: "wrap", gap: 28, alignItems: "flex-start" }}>
@@ -56,7 +59,7 @@ export default function Education() {
               <p style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", letterSpacing: "1px", color: textMuted, marginBottom: 12 }}>Relevant Coursework</p>
               <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
                 {courses.map(c => (
-                  <span key={c} style={{ padding: "5px 13px", borderRadius: 20, fontSize: 12, fontWeight: 600, background: "rgba(99,102,241,0.1)", color: "#818cf8", border: "1px solid rgba(99,102,241,0.2)" }}>
+                  <span key={c} className="skill-tag" style={{ padding: "5px 13px", borderRadius: 20, fontSize: 12, fontWeight: 600, background: "rgba(99,102,241,0.1)", color: "#818cf8", border: "1px solid rgba(99,102,241,0.2)" }}>
                     {c}
                   </span>
                 ))}
