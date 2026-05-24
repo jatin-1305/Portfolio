@@ -37,7 +37,7 @@ export default function About() {
             {[
               <>Software Engineer with <strong style={{ color: textMain }}>2+</strong> years of experience building scalable backend systems, data pipelines, observability platforms, and <strong style={{ color: "#6366f1" }}>RAG-based AI applications</strong>. Proficient in Python, Java, SQL, LangChain, Grafana, and Splunk, with hands-on experience designing solutions that <strong style={{ color: "#ED65F0" }}>improve</strong> system reliability, operational efficiency, and developer productivity across enterprise-scale environments.</>,
               <>Passionate about solving complex technical problems by combining software engineering, observability, and applied AI to build high-impact, scalable products.</>,
-              <>Currently at <strong style={{ color: textMain }}>Salesforce</strong>, I work on AI-powered systems and automation solutions that deliver measurable business impact including reducing case handling time by <strong style={{ color: "#00dc82" }}>30%</strong> and contributing to a <strong style={{ color: "#00dc82" }}>$27M contract renewal</strong> through customer-focused engineering initiatives.</>
+              <>Currently at <strong style={{ color: textMain }}>Salesforce</strong>, I work on AI-powered systems and automation solutions that deliver measurable business impact including reducing case handling time by <strong style={{ color: "#00dc82" }}>30%</strong> and contributing to a <strong style={{ color: "#00dc82" }}>$14M contract renewal</strong> through customer-focused engineering initiatives.</>
             ].map((para, i) => (
               <p key={i} style={{ fontSize: 16, lineHeight: 1.8, color: textMuted, marginBottom: 20 }}>{para}</p>
             ))}

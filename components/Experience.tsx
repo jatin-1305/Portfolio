@@ -18,7 +18,7 @@ const experiences = [
       "Built proactive alerting mechanisms and KPI dashboards on Grafana and Argus, reducing mean time to detect (MTTD) incidents by 20%.",
       // "Implemented ML-based anomaly detection systems that proactively identified 90%+ of anomalies in org request rate trends.",
       "Migrated legacy dashboards to Trino-based queries, improving performance and data processing efficiency by∼30%.",
-      "Led technical health reviews translating system metrics into actionable insights — improved org health score by 20% in one month, renewing a $27M contract.",
+      "Led technical health reviews translating system metrics into actionable insights — improved org health score by 20% in one month, renewing a $14M contract.",
       "Mentored 5+ new hires, reducing ramp-up time by 25% and improving overall team productivity.",
       "Hackathon finalist for developing an AI agentic prototype using Salesforce Agentforce APIs and LLM pipelines."
     ],
