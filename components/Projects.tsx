@@ -125,7 +125,7 @@ export default function Projects() {
               <p style={{ fontSize: 14, lineHeight: 1.7, color: textMuted, marginBottom: 20 }}>{p.description}</p>
 
               <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 18 }}>
-                {p.metrics.map(m => (
+                {(p.metrics ?? []).map(m => (
                   <span key={m} style={{ padding: "4px 10px", borderRadius: 8, fontSize: 11, fontWeight: 800, background: `${p.color}12`, color: p.color }}>
                     ↑ {m}
                   </span>
